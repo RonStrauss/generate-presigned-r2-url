@@ -22,8 +22,12 @@
 2. Install the required dependencies by running:
 
 ```sh
-   npm install @aws-sdk/client-s3 @aws-sdk/s3-request-presigner commander
+   npm install
 ```
+
+## Usage
+
+Run the script with the required options:
 
 ```sh
 node generate-presigned-r2-url.js -b <bucket> -a <account> -k <accessKey> -s <secretKey> [-f <filename>]
