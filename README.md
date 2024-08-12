@@ -51,10 +51,15 @@ npx -y generate-presigned-r2-url -b <bucket> -a <account> -k <accessKey> -s <sec
 ### Example
 
 ```sh
-npm start -b my-bucket -a my-account-id -k my-access-key -s my-secret-key -f my-file.zip
+#while inside root directory
+node generate-presigned-r2-url.js -b my-bucket -a my-account-id -k my-access-key -s my-secret-key -f my-file.zip
 ```
 
-This command will output a presigned URL that can be used to upload `my-file.zip` to the specified R2 bucket.
+This command will output a presigned URL that can be used to upload `my-file.zip` to the specified R2 bucket:
+
+```sh
+https://my-bucket.my-account-id.r2.cloudflarestorage.com/my-file.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=my-access-key%2F20240812%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20240812T153313Z&X-Amz-Expires=1800&X-Amz-Signature=7714bd43f0b5ed892e3e74c52131bde0dcfd6d38f2342dcfeee4d96cda89dd78&X-Amz-SignedHeaders=host&x-id=PutObject
+```
 
 ## License
 
@@ -70,5 +75,3 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 -  [Commander.js](https://github.com/tj/commander.js/)
 
 ---
-
-Feel free to customize this README further based on your specific needs and additional details about your project.
