@@ -2,7 +2,13 @@
 
 ## Description
 
-`generate-presigned-r2-url` is a Node.js script that generates a presigned URL for uploading files to an R2 bucket using AWS SDK. This URL can be used to securely upload files to the specified R2 bucket without requiring direct access to the R2 credentials.
+`generate-presigned-r2-url` is a Node.js script that generates a presigned URL for uploading files to an R2 bucket using AWS SDK (Thanks to Cloudflare's S3 compatible API). This URL can be used to securely upload files to the specified R2 bucket without requiring direct access to the R2 credentials.
+
+This project is intended to be used as a `npx` arguement, however, you can also call it directly from the directory.
+
+## Why
+
+I needed a quick way to adjust a github action workflow, and publishing a npm package is extremely easy.
 
 ## Features
 
@@ -12,8 +18,8 @@
 
 ## Prerequisites
 
--  Node.js installed on your machine.
--  AWS SDK for JavaScript (v3) installed.
+-  Nodejs (Version 20 and up).
+-  Dependencies installed.
 -  An R2 account with access keys.
 
 ## Installation

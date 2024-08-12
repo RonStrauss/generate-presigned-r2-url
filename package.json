@@ -1,6 +1,6 @@
 {
 	"name": "generate-presigned-r2-url",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "Generate and emit a presigned URL for R2 bucket upload",
 	"main": "generate-presigned-r2-url.js",
 	"bin": {
