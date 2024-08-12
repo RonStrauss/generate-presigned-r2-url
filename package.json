@@ -1,0 +1,30 @@
+{
+	"name": "generate-presigned-r2-url",
+	"version": "1.0.0",
+	"description": "Generate and emit a presigned URL for R2 bucket upload",
+	"main": "generate-presigned-r2-url.js",
+	"bin": {
+		"generate-presigned-r2-url": "./generate-presigned-r2-url.js"
+	},
+	"dependencies": {
+		"@aws-sdk/client-s3": "^3.0.0",
+		"@aws-sdk/s3-request-presigner": "^3.0.0",
+		"commander": "^8.0.0"
+	},
+	"author": "Your Name",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RonStrauss/generate-presigned-r2-url.git"
+	},
+	"keywords": [
+		"presigned-url",
+		"R2",
+		"AWS",
+		"S3",
+		"upload"
+	],
+	"engines": {
+		"node": ">=20"
+	}
+}
