@@ -1,6 +1,6 @@
 {
 	"name": "generate-presigned-r2-url",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Generate and emit a presigned URL for R2 bucket upload",
 	"main": "generate-presigned-r2-url.js",
 	"bin": {
@@ -11,6 +11,7 @@
 		"@aws-sdk/s3-request-presigner": "^3.0.0",
 		"commander": "^8.0.0"
 	},
+	"type": "module",
 	"author": "Ron Strauss <ron.strauss.work@gmail.com>",
 	"license": "MIT",
 	"repository": {
