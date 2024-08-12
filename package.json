@@ -11,7 +11,7 @@
 		"@aws-sdk/s3-request-presigner": "^3.0.0",
 		"commander": "^8.0.0"
 	},
-	"author": "Your Name",
+	"author": "Ron Strauss <ron.strauss.work@gmail.com>",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
