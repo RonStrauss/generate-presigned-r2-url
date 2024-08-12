@@ -36,7 +36,8 @@ node generate-presigned-r2-url.js -b <bucket> -a <account> -k <accessKey> -s <se
 Alternatively, you can use `npx` to run the script without installing it globally:
 
 ```sh
-npx generate-presigned-r2-url -b <bucket> -a <account> -k <accessKey> -s <secretKey> [-f <filename>]
+# add -y flag to skip installation question
+npx -y generate-presigned-r2-url -b <bucket> -a <account> -k <accessKey> -s <secretKey> [-f <filename>]
 ```
 
 ### Options
@@ -50,7 +51,7 @@ npx generate-presigned-r2-url -b <bucket> -a <account> -k <accessKey> -s <secret
 ### Example
 
 ```sh
-node generate-presigned-r2-url.js -b my-bucket -a my-account-id -k my-access-key -s my-secret-key -f my-file.zip
+npm start -b my-bucket -a my-account-id -k my-access-key -s my-secret-key -f my-file.zip
 ```
 
 This command will output a presigned URL that can be used to upload `my-file.zip` to the specified R2 bucket.

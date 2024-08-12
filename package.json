@@ -4,7 +4,10 @@
 	"description": "Generate and emit a presigned URL for R2 bucket upload",
 	"main": "generate-presigned-r2-url.js",
 	"bin": {
-		"generate-presigned-r2-url": "./generate-presigned-r2-url.js"
+		"generate-presigned-r2-url": "generate-presigned-r2-url.js"
+	},
+	"scripts": {
+		"start": "node generate-presigned-r2-url.js"
 	},
 	"dependencies": {
 		"@aws-sdk/client-s3": "^3.0.0",
@@ -16,7 +19,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/RonStrauss/generate-presigned-r2-url.git"
+		"url": "git+https://github.com/RonStrauss/generate-presigned-r2-url.git"
 	},
 	"keywords": [
 		"presigned-url",

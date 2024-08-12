@@ -11,7 +11,8 @@ program
 	.requiredOption('-a, --account <account>', 'R2 account ID')
 	.requiredOption('-k, --accessKey <accessKey>', 'R2 access key ID')
 	.requiredOption('-s, --secretKey <secretKey>', 'R2 secret access key')
-	.option('-f, --filename <filename>', 'Filename to upload', 'repo-backup.zip');
+	.option('-f, --filename <filename>', 'Filename to upload', 'repo-backup.zip')
+	.option('-e, --expires <expires>', 'Presigned URL expiration time in seconds', 60 * 30);
 
 program.parse(process.argv);
 
@@ -27,6 +28,11 @@ const S3 = new S3Client({
 });
 
 (async () => {
-	const signedUrl = await getSignedUrl(S3, new PutObjectCommand({ Bucket: options.bucket, Key: options.filename }), { expiresIn: 60 * 30 });
-	console.log(signedUrl);
+	try {
+		const signedUrl = await getSignedUrl(S3, new PutObjectCommand({ Bucket: options.bucket, Key: options.filename }), { expiresIn: options.expires });
+		console.log(signedUrl);
+	} catch (error) {
+		console.error(error);
+		process.exit(1);
+	}
 })();
