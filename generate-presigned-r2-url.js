@@ -12,27 +12,24 @@ program
 	.requiredOption('-k, --accessKey <accessKey>', 'R2 access key ID')
 	.requiredOption('-s, --secretKey <secretKey>', 'R2 secret access key')
 	.option('-f, --filename <filename>', 'Filename to upload', 'repo-backup.zip')
-	.option('-e, --expires <expires>', 'Presigned URL expiration time in seconds', 60 * 30);
+	.option('-e, --expires <expires>', 'Presigned URL expiration time in seconds', 60);
 
 program.parse(process.argv);
 
-const options = program.opts();
+const { bucket, account, accessKey, secretKey, filename, expires } = program.opts();
 
 const S3 = new S3Client({
 	region: 'auto',
-	endpoint: `https://${options.account}.r2.cloudflarestorage.com`,
+	endpoint: `https://${account}.r2.cloudflarestorage.com`,
 	credentials: {
-		accessKeyId: options.accessKey,
-		secretAccessKey: options.secretKey,
+		accessKeyId: accessKey,
+		secretAccessKey: secretKey,
 	},
 });
 
-(async () => {
-	try {
-		const signedUrl = await getSignedUrl(S3, new PutObjectCommand({ Bucket: options.bucket, Key: options.filename }), { expiresIn: options.expires });
-		console.log(signedUrl);
-	} catch (error) {
+getSignedUrl(S3, new PutObjectCommand({ Bucket: bucket, Key: filename }), { expiresIn: expires })
+	.then((signedUrl) => console.log(signedUrl))
+	.catch((error) => {
 		console.error(error);
 		process.exit(1);
-	}
-})();
+	});
